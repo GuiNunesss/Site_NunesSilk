@@ -4,6 +4,7 @@ Projeto de vitrine e catálogo responsivo para a marca fictícia Nunues Silk, fo
 🎯 Objetivo do Projeto
 Criar a página inicial de um e-commerce de camisetas personalizadas, exibindo o catálogo de produtos com layout responsivo, filtros básicos e estrutura pronta para futura integração com carrinho e editor de personalização.
 
+---
 🧩 Funcionalidades
 Listagem de camisetas em formato de cards (imagem, nome, preço e breve descrição).
 
