@@ -14,14 +14,45 @@
   
   body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background-color: var(--ns-gray);
+    background-color: var(--ns-light);
     color: var(--ns-dark);
   }
   
   /* HEADER */
   header {
-    background-color: var(--ns-dark);
-    color: var(--ns-light);
+    background-color: #ffffff
+    color var(--ns-light);
+  }
+
+  .menu-toggle {
+  background: transparent;
+  border: none;
+  color: var(--ns-light);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: none; /* Escondido por padrão, mostrado no mobile */
+  padding: 0;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 11;
+  }
+
+  .menu-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+    background-color: transparent;
+  }
+
+  .logo {
+    background-color: transparent;
+  }
+
+  .logo-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: transparent;
   }
   
   .top-bar {
@@ -30,29 +61,53 @@
     padding: 0.75rem 1rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    position: relative;
+    z-index: 10;
+    background-color: #fff;
+    color: #333;
   }
   
   .logo img {
-    height: 40px;
+    height: 110px;
   }
   
   /* Navegação */
   .nav-menu {
     list-style: none;
-    display: flex;
-    gap: 1rem;
+    padding: 0;
+    margin: 0;
   }
   
   .nav-menu a {
     color: var(--ns-light);
     text-decoration: none;
     font-weight: 500;
+    display: block;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(238, 228, 228, 0.1);
   }
   
   .nav-menu a:hover {
     color: var(--ns-red);
   }
+
+  #side-menu {
+  position: fixed;
+  top: 0;
+  left: -300px; /* Escondido por padrão */
+  width: 280px;
+  height: 100%;
+  background-color: var(--ns-dark);
+  padding: 1rem;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  transition: left 0.3s ease;
+  z-index: 100;
+}
+
+#side-menu.is-open {
+  left: 0; /* Exibe o menu */
+}
   
   /* HERO */
   .hero {
@@ -257,13 +312,60 @@
   /* Responsividade básica */
   @media (max-width: 768px) {
     .top-bar {
-      flex-direction: column;
-      align-items: flex-start;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
       gap: 0.5rem;
     }
-  
-    .nav-menu {
-      flex-wrap: wrap;
+
+    .menu-toggle {
+      display: flex;
     }
+
+    .nav-desktop {
+      display: none;
+    }
+
+    .nav-desktop.is-open {
+      display: block;
+      position: absolute;
+      top: 100%; 
+      left: 0;
+      width: 100%;
+      background-color: var(--ns-dark);
+      padding: 1rem;
+      z-index: 10;
+    }
+
+    .nav-desktop.is-open .nav-menu {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .logo-center {
+    /* No mobile, o logo deve ser centralizado */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
+}
+  
+  @media (min-width: 769px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .logo-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    /* O logo no desktop voltará a ser um item flex normal, alinhado à esquerda. */
+  }
+
+  .nav-desktop {
+    display: flex !important;
+    margin-left: auto;
+  }
+}  
+
   
