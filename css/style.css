@@ -16,6 +16,7 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background-color: var(--ns-light);
     color: var(--ns-dark);
+    overflow-x: hidden;
   }
   
   /* HEADER */
@@ -25,9 +26,8 @@
   }
 
   .menu-toggle {
-  background: transparent;
   border: none;
-  color: var(--ns-light);
+  color: var(--ns-dark);
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
@@ -42,6 +42,13 @@
     font-size: 1.5rem;
     line-height: 1;
     background-color: transparent;
+  }
+
+  .cart-button {
+    text-decoration: none;
+    color: var(--ns-dark);
+    font-size: 1.5rem;
+    position: relative;
   }
 
   .logo {
@@ -69,7 +76,7 @@
   }
   
   .logo img {
-    height: 110px;
+    height: 100px;
   }
   
   /* Navegação */
@@ -99,10 +106,59 @@
   width: 280px;
   height: 100%;
   background-color: var(--ns-dark);
-  padding: 1rem;
+  padding: 1.5rem 1rem;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
   transition: left 0.3s ease;
   z-index: 100;
+}
+
+/* Estilo para o campo de busca dentro do menu lateral */
+.menu-search {
+    display: flex;
+    margin-bottom: 1.5rem;
+    padding-right: 1rem;
+}
+
+.menu-search input {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px 0 0 4px;
+    background-color: var(--ns-dark);
+    color: var(--ns-light);
+}
+
+.menu-search button {
+    background-color: var(--ns-red);
+    color: var(--ns-light);
+    border: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+/* Estilo para os itens de menu com setas (como LISO e PERSONALIZADOS) */
+.menu-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-group a {
+    flex-grow: 1;
+}
+
+.arrow-icon {
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 0 0.5rem;
+    color: var(--ns-light);
+}
+
+/* Estilo para links de ação como Login/Favoritos */
+.menu-action a {
+    color: var(--ns-red); /* Destaca os links de ação */
+    font-weight: 600;
 }
 
 #side-menu.is-open {
@@ -312,14 +368,15 @@
   /* Responsividade básica */
   @media (max-width: 768px) {
     .top-bar {
+      justify-content: space-between;
       flex-direction: row;
       align-items: center;
-      justify-content: space-between;
       gap: 0.5rem;
     }
 
     .menu-toggle {
       display: flex;
+      color: var(--ns-dark);
     }
 
     .nav-desktop {
@@ -347,12 +404,28 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    margin-left: 1.5rem;
+  }
+
+  .logo img {
+    height: 70px;
+  }
+
+  .cart-icon {
+    display: block;
+    color: var(--ns-dark);
   }
 }
   
   @media (min-width: 769px) {
   .menu-toggle {
     display: flex;
+  }
+
+  .cart-button {
+    display: block;
+    margin-left: auto;
+    color: var(--ns-dark);
   }
 
   .logo-center {
@@ -364,7 +437,6 @@
 
   .nav-desktop {
     display: flex !important;
-    margin-left: auto;
   }
 }  
 
