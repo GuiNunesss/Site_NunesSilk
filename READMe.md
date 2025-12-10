@@ -38,7 +38,7 @@ Criar a **página inicial de um e-commerce** de camisetas personalizadas, exibin
 
 * **HTML5**
 * **CSS3**, Tailwind CSS ou Bootstrap
-* **JavaScript** ou **TypeScript**
+* **JavaScript** 
 
 ### Frameworks (opcional)
 
