@@ -49,3 +49,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 }); 
+
+const cartBtn = document.querySelector('.cart-button');
+const cartModal = document.getElementById('cart-modal');
+const closeBtn = document.getElementById('close-cart');
+
+cartBtn.addEventListener('click', () =>{
+    cartModal.style.display = 'block';
+});
+
+closeBtn.addEventListener('click', () => {
+    cartModal.style.display = 'none';
+});
+
+window.addEventListener('click', (event)=>{
+    if (event.target == cartModal){
+        cartModal.style.display = 'none';
+    }
+});

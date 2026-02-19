@@ -104,6 +104,77 @@
   justify-content: center;
 }
 
+.cart-modal{
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.cart-content{
+  background-color: white;
+  margin-left: auto;
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn{
+  from { transform: translateX(100%);}
+  to { transform: translateX(0);}
+}
+
+.cart-header{
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-items-list{
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.cart-footer{
+  padding: 20px;
+  border-top: 1px solid #eee;
+}
+
+.btn-checkout{
+  width: 100%;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-checkout:hover {
+  background-color: #218838;
+}
+
+.close-btn{
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
   .logo {
     background-color: transparent;
   }
@@ -258,8 +329,7 @@
   
   /* Destaque */
   #destaque {
-    padding: 0 40px
-    align-items: center;
+    padding: 0 40px;
   }
   
   #destaque h2 {
