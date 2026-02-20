@@ -48,8 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-}); 
-
 const cartBtn = document.querySelector('.cart-button');
 const cartModal = document.getElementById('cart-modal');
 const closeBtn = document.getElementById('close-cart');
@@ -67,3 +65,26 @@ window.addEventListener('click', (event)=>{
         cartModal.style.display = 'none';
     }
 });
+
+let totalItens = 0;
+
+const badge = document.querySelector('.cart-badge');
+
+function atualizarBadge(){
+    badge.textContent = totalItens;
+
+    if (totalItens === 0){
+        badge.style.display = 'none';
+    } else {
+        badge.style.display = 'flex';
+    }
+}
+
+function adicionarAoCarrinho {
+    totalItens++;
+    atualizarBadge();
+}
+
+atualizarBadge();
+}); 
+
