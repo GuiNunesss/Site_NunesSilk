@@ -80,10 +80,10 @@ function atualizarBadge(){
     }
 }
 
-function adicionarAoCarrinho {
+function adicionarAoCarrinho() {
     totalItens++;
     atualizarBadge();
-}
+};
 
 atualizarBadge();
 }); 
