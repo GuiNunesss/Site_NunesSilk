@@ -86,5 +86,9 @@ function adicionarAoCarrinho() {
 };
 
 atualizarBadge();
+
+let carrinhoItens = [
+    
+]
 }); 
 

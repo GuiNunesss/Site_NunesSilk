@@ -77,10 +77,17 @@
 
 .banner-destaque{
   background-color:  var(--ns-text);
+  padding: 0px;
   color: var(--ns-bg);
-  border-radius: 1rem;
+  border-radius: 20px;
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-top: auto;
+  justify-content: center;
+  min-height: 250px;
+  gap: 15px;
 }
 
 .brand-subtitle {
