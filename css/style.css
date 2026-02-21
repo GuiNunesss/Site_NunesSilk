@@ -96,6 +96,167 @@
   margin: 0;
 }
 
+.modal-overlay{
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 3000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-container{
+  background: var (var(--ns-bg));
+  color: var(--ns-text);
+  width: 90%;
+  max-width: 800px;
+  border-radius: 20px;
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+@keyframes modalScale {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr; /* Duas colunas iguais */
+  min-height: 450px;
+}
+
+@media (max-width: 650px) {
+  .modal-content { grid-template-columns: 1fr; }
+  .modal-left{ height: 250px;}
+}
+
+.modal-left{
+background-color: #f9f9f9;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.modal-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-right {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.close-modal{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0,0,0,0.1);
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ns-text);
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    width: fit-content;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.quantity-control button {
+    background: #eee;
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#qty-value {
+    padding: 0 20px;
+    font-weight: bold;
+}
+
+/* Seletores */
+.size-selector, .color-selector {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.size-dot {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 1px solid var(--ns-red);
+  background: transparent;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.size-dot.active {
+  background: var(--ns-red);
+  color: white;
+}
+
+.color-rect {
+  width: 45px;
+  height: 25px;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.color-rect.active {
+  border-color: var(--ns-red);
+}
+
+/* Quantidade */
+.purchase-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--ns-text);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn-add-cart {
+  background: var(--ns-red);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 /* Botão de Carrinho Circular */
 .cart-button {
   width: 50px;

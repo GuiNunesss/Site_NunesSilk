@@ -87,8 +87,61 @@ function adicionarAoCarrinho() {
 
 atualizarBadge();
 
-let carrinhoItens = [
+let carrinhoItens = [];
+
+let currentProduct = { price: 0, qty: 1 };
+
+const modal = document.getElementById('product-modal');
+const qtyValue = document.getElementById('qty-value');
+const subtotalEl = document.getElementById('modal-subtotal');
+
+document.querySelectorAll('.btn-details').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const card = btn.closest('.product-card');
     
-]
+    const title = card.querySelector('h3').innerText;
+    const priceText = card.querySelector('.product-price').innerText;
+    const imgSrc = card.querySelector('img').src;
+    
+    currentProduct.price = parseFloat(priceText.replace('R$', '').replace(',', '.'));
+    currentProduct.qty = 1;
+
+    document.getElementById('modal-title').innerText = title;
+    document.getElementById('modal-price').innerText = priceText;
+    document.getElementById('modal-img').src = imgSrc;
+    
+    updateModalValues();
+    modal.style.display = 'flex';
+  });
+});
+
+document.getElementById('btn-plus').onclick = () => {
+  currentProduct.qty++;
+  updateModalValues();
+};
+
+document.getElementById('btn-minus').onclick = () => {
+  if (currentProduct.qty > 1) {
+    currentProduct.qty--;
+    updateModalValues();
+  }
+};
+
+function updateModalValues() {
+  qtyValue.innerText = currentProduct.qty;
+  const total = currentProduct.price * currentProduct.qty;
+  subtotalEl.innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+}
+
+document.querySelector('.close-modal').onclick = () => modal.style.display = 'none';
+
+document.getElementById('add-to-cart-action').onclick = () => {
+  totalItens += currentProduct.qty; 
+  atualizarBadge(); 
+  
+  modal.style.display = 'none';
+};
+
 }); 
 

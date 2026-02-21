@@ -104,6 +104,56 @@
         </article>
       </div>
     </section>
+
+    <div id="product-modal" class="modal-overlay">
+      <div class="modal-container">
+        <button class="close-modal">&times;</button>
+
+        <div class="modal-content">
+          <div class="modal-left">
+            <img id="modal-img" src="" alt="Produto">
+          </div>
+
+          <div class="modal-right">
+            <h2 id="modal-title">Título do Produto</h2>
+            <p id="modal-price" class="modal-price-display">R$0,00</p>
+            <hr>
+
+            <div class="option-section">
+              <p>Tamanho:</p>
+              <div class="size-selector">
+                <button class="size-dot">P</button>
+                <button class="size-dot">M</button>
+                <button class="size-dot">G</button>
+                <button class="size-dot">GG</button>
+              </div>
+            </div>
+
+            <div class="option-section">
+              <p>Cor:</p>
+              <div class="color-selector">
+                <button class="color-rect" style="background-color: #fff; border: 1px solid #ddd;"></button>
+                <button class="color-rect" style="background-color: #000;"></button>
+                <button class="color-rect" style="background-color: #e40000;"></button>
+              </div>
+            </div>
+
+            <div class="purchase-section">
+              <div class="quantity-control">
+                <button id="btn-minus">-</button>
+                <span id="qty-value">1</span>
+                <button id="btn-plus">+</button>
+              </div>
+              <div class="subtotal-display">
+                Subtotal: <strong id="modal-subtotal">R$0,00</strong>
+              </div>
+            </div>
+
+            <button id="add-to-cart-action" class="btn-add-cart">Adicionar ao Carrinho</button>
+          </div>
+        </div>
+      </div>
+    </div>
     
   </main>
 
