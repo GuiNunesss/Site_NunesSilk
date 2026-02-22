@@ -14,7 +14,6 @@
       --ns-bg-banner: #ffffff;
       --ns-card: #1e1e1e;
       --ns-shadow: rgba(0,0,0, 0.5);
-      --ns-banner-text-muted: #111111;
     }
   }
   
@@ -32,6 +31,89 @@
     overflow-x: hidden;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+@media (max-width: 992px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em vez de 4 */
+    }
+    
+    .modal-container {
+        width: 95%;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Ajuste da Navegação/Header */
+    header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .modal-container {
+        width: 92%;           /* Deixa uma margem lateral mínima */
+        max-height: 80vh;     /* Garante que o modal nunca seja maior que 90% da altura da tela */
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Banner de Destaque */
+    .banner-destaque {
+        min-height: auto;
+        padding: 30px 15px;
+    }
+
+    .banner-destaque h3 {
+        font-size: 1.5rem;
+    }
+
+    /* Grid de Produtos: 1 coluna para aproveitar o espaço */
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Ajuste do Modal (Imagem em cima, texto embaixo) */
+    .modal-content {
+        display: block;
+        overflow-y: auto;     /* Permite rolar o conteúdo se ele for grande demais */
+        height: 100%;
+    }
+
+    .modal-left {
+        height: 180px;        /* Altura fixa menor para a imagem */
+        width: 100%;
+        flex-shrink: 0;       /* Impede a imagem de "sumir" */
+    }
+
+    .modal-left img {
+        height: 100%;
+        object-fit: contain; /* Garante que a camiseta apareça inteira sem cortar */
+        background: #f4f4f4;
+    }
+
+    .modal-right {
+        padding: 15px;
+        overflow-y: visible;
+    }
+
+    .close-modal {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 100;
+        background: white; /* Fundo branco para destacar sobre a foto */
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+    }
+}
   
   /* HEADER */
   /* Estilos baseados no código React/Tailwind enviado */
@@ -108,7 +190,7 @@
 }
 
 .modal-container{
-  background: var (var(--ns-bg));
+  background: var(--ns-bg);
   color: var(--ns-text);
   width: 90%;
   max-width: 800px;
@@ -119,13 +201,13 @@
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
+
 @keyframes modalScale {
   from { transform: scale(0.9); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
 }
 
 .modal-content {
-  display: grid;
   grid-template-columns: 1fr 1.2fr; /* Duas colunas iguais */
   min-height: 450px;
 }
@@ -208,15 +290,18 @@ justify-content: center;
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  border: 1px solid var(--ns-red);
+  border: 2x solid ;
   background: transparent;
   cursor: pointer;
   transition: 0.2s;
+  color: var(--ns-text)
 }
 
 .size-dot.active {
-  background: var(--ns-red);
-  color: white;
+  border-color: var(--ns-red);
+  background-color: var(--ns-bg-banner);
+  color: var(--ns-bg);
+  transform: scale(1.1);
 }
 
 .color-rect {
@@ -225,10 +310,12 @@ justify-content: center;
   border-radius: 4px;
   border: 2px solid transparent;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .color-rect.active {
   border-color: var(--ns-red);
+  transform: scale(1.1);
 }
 
 /* Quantidade */
@@ -379,6 +466,7 @@ justify-content: center;
   border: none;
   font-size: 2rem;
   cursor: pointer;
+  color: var(--ns-text);
 }
 
   .logo {
@@ -395,7 +483,7 @@ justify-content: center;
   .top-bar {
     width: 100%;
     background-color: var(--ns-red);
-    color: var(--ns-light);
+    color: var(--ns-bg);
     padding: 30px;
     justify-content: flex-start;
     align-items: center;
@@ -413,14 +501,14 @@ justify-content: center;
     font-size: 30rem;
     font-weight: 700;
     padding: 0 0.5rem;
-    color: var(--ns-light);
+    color: var(--ns-bg);
 }
 
   
   /* HERO */
   .hero {
     background-color: var(--ns-red);
-    color: var(--ns-light);
+    color: var(--ns-bg);
   }
   
   .hero-content {
@@ -456,7 +544,7 @@ justify-content: center;
   }
   
   .btn-primary {
-    background-color: var(--ns-light);
+    background-color: var(--ns-bg);
     color: var(--ns-red);
   }
   
@@ -482,7 +570,7 @@ justify-content: center;
   
   .btn-details {
     background-color: var(--ns-red);
-    color: var(--ns-light);
+    color: var(--ns-bg);
   }
   
   .btn-details:hover {
@@ -498,7 +586,7 @@ justify-content: center;
   
   /* Filtragem */
   #filtros {
-    background-color: var(--ns-light);
+    background-color: var(--ns-bg);
     padding: 1rem;
     border-radius: 6px;
     margin-bottom: 1.5rem;
@@ -533,7 +621,7 @@ justify-content: center;
   #filtros button {
     background-color: var(--ns-red);
     border: none;
-    color: var(--ns-light);
+    color: var(--ns-bg);
     border-radius: 4px;
     cursor: pointer;
   }
@@ -585,7 +673,7 @@ justify-content: center;
   }
   
   .product-card {
-    background-color: var(--ns-light);
+    background-color: var(--ns-card);
     border-radius: 6px;
     overflow: hidden;
     box-shadow: 0 2px 6px rgba(0,0,0,0.06);
@@ -625,7 +713,7 @@ justify-content: center;
   /* Estilo para o banner de Título da Página (usado no sobre.html) */
 .page-title-banner {
     background-color: var(--ns-red); /* Cor de fundo vermelha */
-    color: var(--ns-light);
+    color: var(--ns-bg);
     padding: 1.5rem 1rem;
     text-align: center;
 }
@@ -681,7 +769,7 @@ justify-content: center;
   /* FOOTER */
   footer {
     background-color: var(--ns-dark);
-    color: var(--ns-light);
+    color: var(--ns-bg);
     text-align: center;
     padding: 2rem 1rem 0.5rem;
     font-size: 0.9rem;
@@ -717,10 +805,11 @@ justify-content: center;
     display: flex;
     gap: 1rem;
     margin-top: 0.5rem;
+    justify-content: center;
 }
 
 .social-icons a {
-    color: var(--ns-light);
+    color: var(--ns-red);
 }
 
 .social-icons svg {

@@ -68,6 +68,25 @@ window.addEventListener('click', (event)=>{
 
 let totalItens = 0;
 
+// Função genérica para lidar com seleções
+function setupSelector(selectorClass) {
+    const buttons = document.querySelectorAll(selectorClass);
+    
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove a classe 'active' de todos os botões do mesmo grupo
+            buttons.forEach(b => b.classList.remove('active'));
+            
+            // Adiciona a classe 'active' no botão clicado
+            btn.classList.add('active');
+        });
+    });
+}
+
+// Ativa a lógica para tamanhos e cores
+setupSelector('.size-dot');
+setupSelector('.color-rect');
+
 const badge = document.querySelector('.cart-badge');
 
 function atualizarBadge(){
