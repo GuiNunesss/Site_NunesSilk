@@ -368,7 +368,7 @@ justify-content: center;
 
 .cart-button svg{
   display: block;
-  color: #111111;
+  color: var(--ns-red);
   flex-shrink: 0; 
   margin: 0;
   position: relative;
