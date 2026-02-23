@@ -1,8 +1,12 @@
+html{
+  scroll-behavior: smooth;
+}
+
 :root {
     --ns-red: #e40000;
     --ns-text: #111111;
     --ns-bg: #ffffff;
-    --ns-card: #f4f4f4d3;
+    --ns-card: #dfdfdf;
     --ns-bg-banner: #000000;
     --ns-shadow: rgba(0,0,0, 0.1);
   }
@@ -12,7 +16,7 @@
       --ns-bg: #111111;
       --ns-text: #ffffff;
       --ns-bg-banner: #ffffff;
-      --ns-card: #1e1e1e;
+      --ns-card: #292828;
       --ns-shadow: rgba(0,0,0, 0.5);
     }
   }
@@ -40,7 +44,7 @@
 
 @media (max-width: 992px) {
     .product-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 colunas em vez de 4 */
+        grid-template-columns: repeat(2, 1fr); 
     }
     
     .modal-container {
@@ -49,17 +53,22 @@
 }
 
 @media (max-width: 600px) {
-    /* Ajuste da Navegação/Header */
     header {
         flex-direction: column;
         padding: 1rem;
     }
 
     .modal-container {
-        width: 92%;           /* Deixa uma margem lateral mínima */
-        max-height: 80vh;     /* Garante que o modal nunca seja maior que 90% da altura da tela */
+        width: 92%;           
+        max-height: 80vh;    
         display: flex;
         flex-direction: column;
+    }
+
+    .cart-content{
+      width: 90%;
+      max-height: 85vh;
+      overflow-y: auto;
     }
 
     /* Banner de Destaque */
@@ -72,28 +81,26 @@
         font-size: 1.5rem;
     }
 
-    /* Grid de Produtos: 1 coluna para aproveitar o espaço */
     .product-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
-    /* Ajuste do Modal (Imagem em cima, texto embaixo) */
     .modal-content {
         display: block;
-        overflow-y: auto;     /* Permite rolar o conteúdo se ele for grande demais */
+        overflow-y: auto;     
         height: 100%;
     }
 
     .modal-left {
-        height: 180px;        /* Altura fixa menor para a imagem */
+        height: 180px;        
         width: 100%;
-        flex-shrink: 0;       /* Impede a imagem de "sumir" */
+        flex-shrink: 0;       
     }
 
     .modal-left img {
         height: 100%;
-        object-fit: contain; /* Garante que a camiseta apareça inteira sem cortar */
+        object-fit: contain; 
         background: #f4f4f4;
     }
 
@@ -107,7 +114,7 @@
         top: 10px;
         right: 10px;
         z-index: 100;
-        background: white; /* Fundo branco para destacar sobre a foto */
+        background: white; 
         box-shadow: 0 2px 8px rgba(0,0,0,0.3);
         width: 35px;
         height: 35px;
@@ -144,16 +151,16 @@
 }
 
 .logo-img {
-  height: 4rem; /* h-16 */
+  height: 4rem; 
   width: auto;
   background-color: white;
-  border-radius: 0.5rem; /* rounded-lg */
-  padding: 0.5rem; /* p-2 */
+  border-radius: 0.5rem; 
+  padding: 0.5rem; 
 }
 
 .brand-title {
-  font-size: 1.5rem; /* text-2xl */
-  font-weight: 700; /* font-bold */
+  font-size: 1.5rem; 
+  font-weight: 700; 
   margin: 0;
 }
 
@@ -173,8 +180,8 @@
 }
 
 .brand-subtitle {
-  font-size: 0.875rem; /* text-sm */
-  color: #fee2e2; /* text-red-100 */
+  font-size: 0.875rem; 
+  color: #fee2e2; 
   margin: 0;
 }
 
@@ -208,7 +215,7 @@
 }
 
 .modal-content {
-  grid-template-columns: 1fr 1.2fr; /* Duas colunas iguais */
+  grid-template-columns: 1fr 1.2fr; 
   min-height: 450px;
 }
 
@@ -277,6 +284,7 @@ justify-content: center;
 #qty-value {
     padding: 0 20px;
     font-weight: bold;
+    color: var(--ns-text)
 }
 
 /* Seletores */
@@ -299,8 +307,8 @@ justify-content: center;
 
 .size-dot.active {
   border-color: var(--ns-red);
-  background-color: var(--ns-bg-banner);
-  color: var(--ns-bg);
+  background-color: var(--ns-card);
+  color: var(--ns-text);
   transform: scale(1.1);
 }
 
@@ -308,7 +316,7 @@ justify-content: center;
   width: 45px;
   height: 25px;
   border-radius: 4px;
-  border: 2px solid transparent;
+  border: 2px solid #ddd;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -323,7 +331,7 @@ justify-content: center;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--ns-text);
+  background: var(--ns-bg);
   padding: 15px;
   border-radius: 10px;
 }
@@ -368,21 +376,21 @@ justify-content: center;
 }
 
 .cart-button:hover {
-  background-color: #fef2f2; /* hover:bg-red-50 */
+  background-color: #fef2f2; 
 }
 
 /* O "Badge" Amarelo do Contador */
 .cart-badge {
   position: absolute;
-  top: -5px; /* -top-2 */
-  right: -5px; /* -right-2 */
-  background-color: #facc15; /* bg-yellow-400 */
-  color: #7f1d1d; /* text-red-900 */
-  font-size: 0.75rem; /* text-xs */
+  top: -5px; 
+  right: -5px; 
+  background-color: #facc15; 
+  color: #7f1d1d; 
+  font-size: 0.75rem; 
   font-weight: bold;
   border-radius: 9999px;
-  height: 20px; /* h-6 */
-  width: 20px; /* w-6 */
+  height: 20px; 
+  width: 20px; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -393,24 +401,20 @@ justify-content: center;
 .cart-modal{
   display: none;
   position: fixed;
-  z-index: 2000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background-color: rgba(0,0,0,0.5);
-  display: none;
+  z-index: 3000;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 }
 
 .cart-content{
   background-color: var(--ns-bg);
-  margin-left: auto;
-  width: 90%;
-  max-width: 500px;
-  max-height: 80vh;
-  border-radius: 20px;
+  width: 95%;
+  max-width: 700px;
+  max-height: 85vh;
+  border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
   display: flex;
   flex-direction: column;
@@ -418,6 +422,7 @@ justify-content: center;
   animation: zoomIn 0.3s ease-out;
   color: var(--ns-text);
   border: 1px solid var(--ns-card);
+  overflow: hidden;
 }
 
 @keyframes zoomIn{
@@ -530,8 +535,7 @@ justify-content: center;
   }
   
   /* BOTÕES */
-  .btn-primary,
-  .btn-secondary,
+  .btn-ofertas,
   .btn-details {
     display: inline-block;
     padding: 0.6rem 1.2rem;
@@ -542,17 +546,7 @@ justify-content: center;
     letter-spacing: 0.5px;
     font-size: 0.85rem;
   }
-  
-  .btn-primary {
-    background-color: var(--ns-bg);
-    color: var(--ns-red);
-  }
-  
-  .btn-primary:hover {
-    background-color: #ffeaea;
-  }
-  
-  .btn-secondary {
+  .btn-ofertas {
     display: inline-block;
     background-color: var(--ns-red);
     color: white;
@@ -561,10 +555,10 @@ justify-content: center;
     text-decoration: none;
     font-weight: bold;
     margin-top: 15px;
-    transition: transform 0.2s;
+    transition: ease-out 0.3s;
   }
   
-  .btn-secondary:hover {
+  .btn-ofertas:hover {
     transform: scale(1.05);
   }
   
@@ -784,6 +778,7 @@ justify-content: center;
   justify-content: space-between;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 1.5rem;
+  color: var(--ns-text);
 }
 
 .footer-section {

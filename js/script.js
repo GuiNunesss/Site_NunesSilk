@@ -53,7 +53,7 @@ const cartModal = document.getElementById('cart-modal');
 const closeBtn = document.getElementById('close-cart');
 
 cartBtn.addEventListener('click', () =>{
-    cartModal.style.display = 'block';
+    cartModal.style.display = 'flex';
 });
 
 closeBtn.addEventListener('click', () => {
